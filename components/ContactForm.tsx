@@ -5,127 +5,157 @@ import { useState } from 'react'
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
-    service: '',
-    message: '',
+    email: '',
+    projectType: '',
+    description: '',
   })
+
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real application, this would send data to a server
+
     console.log('Form submitted:', formData)
+
     setIsSubmitted(true)
+
     setTimeout(() => {
       setIsSubmitted(false)
       setFormData({
         name: '',
-        email: '',
         phone: '',
-        service: '',
-        message: '',
+        email: '',
+        projectType: '',
+        description: '',
       })
     }, 3000)
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-lg">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-brand-white p-10 rounded-3xl shadow-2xl border border-brand-charcoal/20 space-y-8"
+    >
+      {/* Success Message */}
       {isSubmitted && (
-        <div className="bg-biaggio-green text-white p-4 rounded-lg">
-          Thank you! We'll contact you soon.
+        <div className="bg-brand-primary/10 border border-brand-primary text-brand-charcoal p-4 rounded-xl animate-fadeIn">
+          <p className="font-semibold">Request received.</p>
+          <p className="text-sm text-brand-charcoal/70">
+            Our team will contact you shortly.
+          </p>
         </div>
       )}
-      
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-          Full Name *
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-biaggio-green focus:border-transparent"
-        />
+
+      {/* GRID */}
+      <div className="grid md:grid-cols-2 gap-6">
+
+        {/* Name */}
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-brand-charcoal tracking-wide">
+            Full Name *
+          </label>
+
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full px-5 py-3 rounded-xl border border-brand-charcoal/30 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30 outline-none transition"
+            placeholder="Your full name"
+          />
+        </div>
+
+        {/* Phone */}
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-brand-charcoal tracking-wide">
+            Phone Number *
+          </label>
+
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            className="w-full px-5 py-3 rounded-xl border border-brand-charcoal/30 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30 outline-none transition"
+            placeholder="(321) 000-0000"
+          />
+        </div>
+
       </div>
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+      {/* Email */}
+      <div className="space-y-2">
+        <label className="text-sm font-semibold text-brand-charcoal tracking-wide">
           Email Address *
         </label>
+
         <input
           type="email"
-          id="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-biaggio-green focus:border-transparent"
+          className="w-full px-5 py-3 rounded-xl border border-brand-charcoal/30 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30 outline-none transition"
+          placeholder="your@email.com"
         />
       </div>
 
-      <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-          Phone Number
+      {/* Project Type */}
+      <div className="space-y-2">
+        <label className="text-sm font-semibold text-brand-charcoal tracking-wide">
+          Project Type *
         </label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-biaggio-green focus:border-transparent"
-        />
-      </div>
 
-      <div>
-        <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-          Service Interest
-        </label>
         <select
-          id="service"
-          name="service"
-          value={formData.service}
+          name="projectType"
+          value={formData.projectType}
           onChange={handleChange}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-biaggio-green focus:border-transparent"
+          required
+          className="w-full px-5 py-3 rounded-xl border border-brand-charcoal/30 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30 outline-none transition bg-white"
         >
-          <option value="">Select a service</option>
+          <option value="">Select your project</option>
           <option value="flooring">Flooring Installation</option>
           <option value="bathroom">Bathroom Remodeling</option>
-          <option value="shower">Shower Installation</option>
-          <option value="consultation">Free Consultation</option>
+          <option value="tile">Custom Tile Work</option>
+          <option value="consultation">Consultation</option>
         </select>
       </div>
 
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-          Message *
+      {/* Description */}
+      <div className="space-y-2">
+        <label className="text-sm font-semibold text-brand-charcoal tracking-wide">
+          Project Details *
         </label>
+
         <textarea
-          id="message"
-          name="message"
-          value={formData.message}
+          name="description"
+          rows={5}
+          value={formData.description}
           onChange={handleChange}
           required
-          rows={4}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-biaggio-green focus:border-transparent"
+          className="w-full px-5 py-3 rounded-xl border border-brand-charcoal/30 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30 outline-none transition resize-none"
+          placeholder="Tell us about your project..."
         />
       </div>
 
+      {/* Submit */}
       <button
         type="submit"
-        className="w-full bg-biaggio-green text-white px-6 py-3 rounded-lg font-semibold hover:bg-biaggio-light-green transition-colors"
+        className="w-full bg-brand-primary text-white py-4 rounded-full font-semibold tracking-wide hover:bg-brand-accent transition duration-300 shadow-lg hover:shadow-xl"
       >
-        Send Message
+        Request Estimate
       </button>
     </form>
   )
 }
+

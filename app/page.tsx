@@ -1,151 +1,329 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import SplashSection from '@/components/SplashSection'
 
 export const metadata: Metadata = {
-  title: 'Biaggio Flooring - Expert Flooring & Bathroom Remodeling in Central Florida',
-  description: 'Professional flooring installation and bathroom remodeling services in Central Florida with over 15 years of experience.',
+  title: 'Biaggio Flooring - Premium Flooring & Bathroom Remodeling in Central Florida',
+  description:
+    'Premium flooring installation and bathroom remodeling in Central Florida. Over 15 years of craftsmanship, precision, and trusted service.',
 }
+
+const trustStats = [
+  { value: '15+', label: 'Years Experience' },
+  { value: '500+', label: 'Completed Projects' },
+  { value: 'Licensed', label: '& Insured' },
+  { value: '5-Star', label: 'Customer Rating' },
+]
+
+const serviceHighlights = [
+  {
+    title: 'Flooring Installation',
+    description:
+      'Hardwood, LVP, laminate, and tile installed with precision and long-lasting performance.',
+    image: '/images/flooring/floor1.jpg',
+    alt: 'Premium hardwood flooring installation',
+  },
+  {
+    title: 'Bathroom Remodeling',
+    description:
+      'Luxury showers, tile walls, and functional layouts designed for modern living.',
+    image: '/images/bathrooms/bath.jpg',
+    alt: 'Modern bathroom remodeling with custom tile',
+  },
+  {
+    title: 'Custom Tile Work',
+    description:
+      'Decorative accents, backsplashes, and statement feature walls that elevate your space.',
+    image: '/images/bathrooms/bath04.jpg',
+    alt: 'Custom tile installation with premium finish',
+  },
+]
+
+const portfolioPreview = [
+  {
+    title: 'Luxury Shower Detail',
+    image: '/images/projects/bath04.jpg',
+  },
+  {
+    title: 'Warm Hardwood Finish',
+    image: '/images/projects/floor1.jpg',
+  },
+  {
+    title: 'Tile Accent Feature',
+    image: '/images/projects/bath03.jpg',
+  },
+]
+
+const differentiators = [
+  'Family owned and relationship focused',
+  'Premium craftsmanship on every detail',
+  'Transparent pricing and written estimates',
+  'Reliable scheduling with clear timelines',
+  'Detail-focused installation standards',
+]
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white">
-        <div className="container mx-auto px-4 py-24 md:py-32">
+      {/* HERO */}
+      <section className="relative min-h-screen overflow-hidden bg-brand-charcoal text-brand-white">
+
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/place_1.jpg"
+            alt="Luxury home interior with premium flooring"
+            fill
+            priority
+            className="object-cover scale-105"
+            sizes="100vw"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-charcoal/90 via-brand-charcoal/70 to-brand-charcoal/90" />
+        </div>
+
+        <div className="relative container mx-auto px-4 py-32">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Transform Your Home with Expert Flooring & Bathroom Solutions
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-300">
-              Over 15 years of excellence in Central Florida. Quality craftsmanship, beautiful results.
+
+            <p className="uppercase tracking-[0.45em] text-brand-accent text-sm mb-6">
+              Central Florida Remodeling
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+
+            <h1 className="text-4xl md:text-6xl font-semibold leading-tight mb-6">
+              Precision Flooring & Bathroom Remodeling Designed To Last
+            </h1>
+
+            <p className="text-lg text-brand-white/90 mb-10 max-w-xl">
+              Premium installations delivered with refined craftsmanship,
+              clear communication, and dependable scheduling.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+
               <Link
                 href="/contact"
-                className="bg-biaggio-green text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-biaggio-light-green transition-colors text-center"
+                className="bg-brand-primary px-9 py-4 rounded-full font-semibold hover:bg-brand-accent transition shadow-lg"
               >
-                Get Free Quote
+                Request Free Estimate
               </Link>
+
               <Link
                 href="/portfolio"
-                className="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors text-center"
+                className="border border-brand-white px-9 py-4 rounded-full font-semibold hover:border-brand-accent hover:text-brand-accent transition"
               >
-                View Our Work
+                View Portfolio
               </Link>
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-20 bg-white">
+      {/* SPLASH */}
+      <SplashSection
+        imageSrc="/images/bathrooms/bath2.jpg"
+        eyebrow="Luxury Remodeling"
+        heading="Trusted by Central Florida Homeowners"
+        body="We deliver refined finishes, clean installs, and a streamlined process that respects your home and timeline."
+        ctaText="Schedule Consultation"
+      />
+
+      {/* TRUST STATS */}
+      <section className="py-20 bg-brand-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Services
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {trustStats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-3xl p-8 text-center shadow-xl border border-brand-charcoal/10"
+              >
+                <div className="text-4xl font-semibold text-brand-primary mb-3">
+                  {stat.value}
+                </div>
+
+                <p className="uppercase tracking-widest text-sm text-brand-charcoal/70">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="py-20 bg-brand-white">
+        <div className="container mx-auto px-4">
+
+          <div className="text-center mb-14">
+            <p className="uppercase tracking-[0.35em] text-brand-charcoal mb-3">
+              Services
+            </p>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-brand-charcoal mb-4">
+              Premium Remodeling Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Professional installation and remodeling services tailored to your needs
+
+            <p className="text-lg text-brand-charcoal max-w-2xl mx-auto">
+              Expert installation, refined materials, and a process built on clarity and trust.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Flooring Service */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:border-biaggio-green hover:shadow-lg transition-all">
-              <div className="w-16 h-16 bg-biaggio-green rounded-full flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Flooring Installation</h3>
-              <p className="text-gray-600 mb-6">
-                Hardwood, laminate, vinyl, tile, and more. Expert installation for lasting beauty.
-              </p>
-              <Link href="/services" className="text-biaggio-green font-semibold hover:text-biaggio-light-green transition-colors">
-                Learn More →
-              </Link>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8">
 
-            {/* Bathroom Remodeling */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:border-biaggio-green hover:shadow-lg transition-all">
-              <div className="w-16 h-16 bg-biaggio-green rounded-full flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Bathroom Remodeling</h3>
-              <p className="text-gray-600 mb-6">
-                Complete bathroom transformations from design to finish. Modern, functional, beautiful.
-              </p>
-              <Link href="/bathroom-shower" className="text-biaggio-green font-semibold hover:text-biaggio-light-green transition-colors">
-                Learn More →
-              </Link>
-            </div>
+            {serviceHighlights.map((service) => (
+              <div
+                key={service.title}
+                className="group rounded-3xl overflow-hidden bg-brand-white shadow-xl hover:shadow-2xl transition duration-500"
+              >
+                <div className="relative h-56">
+                  <Image
+                    src={service.image}
+                    alt={service.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
 
-            {/* Shower Installation */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-8 hover:border-biaggio-green hover:shadow-lg transition-all">
-              <div className="w-16 h-16 bg-biaggio-green rounded-full flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
+                </div>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-brand-charcoal mb-3">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-brand-charcoal mb-5">
+                    {service.description}
+                  </p>
+
+                  <Link
+                    href="/services"
+                    className="text-brand-primary font-semibold hover:text-brand-accent transition-colors"
+                  >
+                    Learn More →
+                  </Link>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Shower Installation</h3>
-              <p className="text-gray-600 mb-6">
-                Custom shower solutions including walk-in showers, glass enclosures, and tile work.
-              </p>
-              <Link href="/bathroom-shower" className="text-biaggio-green font-semibold hover:text-biaggio-light-green transition-colors">
-                Learn More →
-              </Link>
-            </div>
+            ))}
+
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-gray-50">
+      {/* SPLASH */}
+      <SplashSection
+        imageSrc="/images/flooring/floor 2.jpg"
+        eyebrow="Crafted Floors"
+        heading="Precision Installation. Refined Finishes."
+        body="From hardwood to luxury tile, we deliver floors that define the space and elevate everyday living."
+        ctaText="Explore Services"
+        ctaHref="/services"
+      />
+
+      {/* PORTFOLIO */}
+      <section className="py-20 bg-brand-white">
+
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Biaggio Flooring?
+
+          <div className="text-center mb-12">
+            <p className="uppercase tracking-[0.35em] text-brand-charcoal mb-3">
+              Portfolio
+            </p>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-brand-charcoal mb-4">
+              Featured Projects
             </h2>
+
+            <p className="text-lg text-brand-charcoal max-w-2xl mx-auto">
+              Signature projects showcasing our installation standards.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-biaggio-green mb-2">15+</div>
-              <p className="text-gray-600 font-semibold">Years Experience</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-biaggio-green mb-2">500+</div>
-              <p className="text-gray-600 font-semibold">Projects Completed</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-biaggio-green mb-2">100%</div>
-              <p className="text-gray-600 font-semibold">Satisfaction Guarantee</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-biaggio-green mb-2">★★★★★</div>
-              <p className="text-gray-600 font-semibold">5-Star Rated</p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {portfolioPreview.map((project) => (
+              <div
+                key={project.title}
+                className="group relative overflow-hidden rounded-3xl shadow-lg"
+              >
+                <div className="relative h-72">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
+                </div>
+
+                <div className="absolute inset-0 flex items-end p-6 opacity-0 group-hover:opacity-100 transition">
+                  <h3 className="text-lg font-semibold text-white">
+                    {project.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+
           </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href="/portfolio"
+              className="inline-flex bg-brand-primary text-white px-7 py-3 rounded-full font-semibold hover:bg-brand-accent transition"
+            >
+              View Full Portfolio
+            </Link>
+          </div>
+
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-biaggio-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Space?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Get a free consultation and quote today. Let's bring your vision to life.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-white text-biaggio-green px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-          >
-            Contact Us Today
-          </Link>
+      {/* FINAL SPLASH */}
+      <SplashSection
+        imageSrc="/images/projects/bath04.jpg"
+        eyebrow="Precision Remodeling"
+        heading="Elevate Your Home with Biaggio Flooring"
+        body="Schedule a complimentary consultation and receive a detailed estimate tailored to your space."
+        ctaText="Request Free Estimate"
+      />
+
+      {/* WHY CHOOSE */}
+      <section className="py-20 bg-brand-white">
+
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+
+          <div>
+            <p className="uppercase tracking-[0.35em] text-brand-charcoal mb-3">
+              Why Choose Us
+            </p>
+
+            <h2 className="text-3xl md:text-4xl font-semibold text-brand-charcoal mb-6">
+              Trusted Craftsmanship, Clear Communication
+            </h2>
+
+            <p className="text-lg text-brand-charcoal mb-8">
+              We guide every project with transparency, detailed planning, and a commitment to premium finishes.
+            </p>
+
+            <ul className="space-y-4">
+              {differentiators.map((item) => (
+                <li key={item} className="flex gap-3 text-brand-charcoal">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-brand-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative h-[420px] rounded-[36px] overflow-hidden shadow-xl">
+            <Image
+              src="/images/bathrooms/bath03.jpg"
+              alt="Luxury shower with precision tile work"
+              fill
+              className="object-cover"
+            />
+          </div>
+
         </div>
       </section>
     </>

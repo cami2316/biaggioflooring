@@ -1,137 +1,196 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import Gallery from '@/components/Gallery'
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Biaggio Flooring',
-  description: 'View our completed flooring and bathroom remodeling projects in Central Florida.',
+  title: 'Portfolio - Finished Flooring & Bathroom Projects',
+  description:
+    'Explore Biaggio Flooring’s completed remodeling and flooring projects across Central Florida.',
 }
 
 export default function Portfolio() {
-  // Sample portfolio items - finished projects only
+
   const portfolioItems = [
     {
       id: 1,
-      title: 'Modern Kitchen Hardwood',
-      description: 'Beautiful oak hardwood flooring installation in a contemporary kitchen space.',
-      imageSrc: '/images/project1.jpg',
+      title: 'Warm Hardwood Living Space',
+      category: 'Flooring' as const,
+      imageSrc: '/images/flooring/floor1.jpg',
+      alt: 'Hardwood floor installation',
     },
     {
       id: 2,
-      title: 'Master Bathroom Remodel',
-      description: 'Complete bathroom transformation with custom tile work and walk-in shower.',
-      imageSrc: '/images/project2.jpg',
+      title: 'Contemporary Plank Flooring',
+      category: 'Flooring' as const,
+      imageSrc: '/images/flooring/floor 2.jpg',
+      alt: 'Luxury vinyl plank flooring',
     },
     {
       id: 3,
-      title: 'Living Room Laminate',
-      description: 'Premium laminate flooring that mimics natural hardwood at an affordable price.',
-      imageSrc: '/images/project3.jpg',
+      title: 'Statement Tile Floor',
+      category: 'Flooring' as const,
+      imageSrc: '/images/flooring/floor 03.jpg',
+      alt: 'Decorative tile flooring',
     },
     {
       id: 4,
-      title: 'Luxury Shower Installation',
-      description: 'Frameless glass shower with custom tile patterns and built-in bench.',
-      imageSrc: '/images/project4.jpg',
+      title: 'Custom Shower Installation',
+      category: 'Bathrooms' as const,
+      imageSrc: '/images/bathrooms/bath.jpg',
+      alt: 'Luxury shower remodel',
     },
     {
       id: 5,
-      title: 'Commercial Office Flooring',
-      description: 'Durable vinyl plank flooring for high-traffic commercial space.',
-      imageSrc: '/images/project5.jpg',
+      title: 'Spa Inspired Bathroom',
+      category: 'Bathrooms' as const,
+      imageSrc: '/images/bathrooms/bath2.jpg',
+      alt: 'Bathroom remodel with premium finishes',
     },
     {
       id: 6,
-      title: 'Guest Bathroom Update',
-      description: 'Modern vanity and tile work with elegant fixtures and finishes.',
-      imageSrc: '/images/project6.jpg',
+      title: 'Modern Tile Statement Wall',
+      category: 'Bathrooms' as const,
+      imageSrc: '/images/bathrooms/bath03.jpg',
+      alt: 'Tile wall installation',
     },
     {
       id: 7,
-      title: 'Bedroom Carpet Installation',
-      description: 'Plush, stain-resistant carpet for comfortable bedroom flooring.',
-      imageSrc: '/images/project7.jpg',
+      title: 'Luxury Shower Niche Detail',
+      category: 'Bathrooms' as const,
+      imageSrc: '/images/bathrooms/bath04.jpg',
+      alt: 'Custom shower niche',
     },
     {
       id: 8,
-      title: 'Entryway Tile Design',
-      description: 'Custom tile pattern with decorative inlay for stunning first impression.',
-      imageSrc: '/images/project8.jpg',
+      title: 'Completed Flooring Project',
+      category: 'Projects' as const,
+      imageSrc: '/images/projects/floor1.jpg',
+      alt: 'Finished flooring project',
     },
     {
       id: 9,
-      title: 'Basement Waterproof Flooring',
-      description: 'Water-resistant luxury vinyl installation perfect for below-grade spaces.',
-      imageSrc: '/images/project9.jpg',
+      title: 'Finished Bathroom Remodel',
+      category: 'Projects' as const,
+      imageSrc: '/images/projects/bath.jpg',
+      alt: 'Completed bathroom remodel',
+    },
+    {
+      id: 10,
+      title: 'Custom Tile Installation Project',
+      category: 'Projects' as const,
+      imageSrc: '/images/projects/bath04.jpg',
+      alt: 'Custom tile project',
     },
   ]
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gray-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Portfolio</h1>
-          <p className="text-xl text-gray-300 max-w-3xl">
-            Explore our completed projects and see the quality craftsmanship that goes into every job.
+      {/* HERO */}
+      <section className="relative py-28 bg-brand-charcoal text-white overflow-hidden">
+
+        <div className="absolute inset-0">
+          <Image
+            src="/images/projects/bath04.jpg"
+            alt="Luxury remodeling portfolio"
+            fill
+            className="object-cover scale-105"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-charcoal/90 via-brand-charcoal/70 to-brand-charcoal/90" />
+        </div>
+
+        <div className="relative container mx-auto px-4 max-w-3xl">
+          <p className="uppercase tracking-[0.45em] text-brand-accent text-sm mb-5">
+            Portfolio
+          </p>
+
+          <h1 className="text-4xl md:text-5xl font-semibold mb-6">
+            Spaces Transformed Through Craftsmanship
+          </h1>
+
+          <p className="text-lg text-white/90">
+            Explore finished projects that showcase our installation standards,
+            design precision, and commitment to premium results.
           </p>
         </div>
+
       </section>
 
-      {/* Portfolio Gallery */}
-      <section className="py-20 bg-white">
+      {/* INTRO */}
+      <section className="py-20 bg-brand-white text-center">
+
+        <div className="container mx-auto px-4 max-w-2xl">
+          <h2 className="text-3xl font-semibold text-brand-charcoal mb-6">
+            Signature Project Gallery
+          </h2>
+
+          <p className="text-lg text-brand-charcoal">
+            Browse our completed flooring installations and bathroom remodels.
+            Each project reflects careful planning, premium materials, and refined finishing.
+          </p>
+        </div>
+
+      </section>
+
+      {/* GALLERY */}
+      <section className="pb-20 bg-brand-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Finished Projects</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Each project showcases our commitment to excellence and attention to detail.
-            </p>
-          </div>
-          
           <Gallery items={portfolioItems} />
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-biaggio-green mb-2">500+</div>
-              <p className="text-gray-600 font-semibold">Projects Completed</p>
+      {/* DIFFERENTIATOR SECTION */}
+      <section className="py-20 bg-brand-white">
+
+        <div className="container mx-auto px-4 grid md:grid-cols-4 gap-8 text-center">
+
+          {[
+            { value: '500+', label: 'Projects Completed' },
+            { value: '15+', label: 'Years Experience' },
+            { value: 'Licensed', label: '& Insured' },
+            { value: '5-Star', label: 'Client Reviews' },
+          ].map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-3xl p-8 shadow-premium border border-brand-charcoal/10"
+            >
+              <div className="text-4xl font-semibold text-brand-primary mb-3">
+                {stat.value}
+              </div>
+
+              <p className="uppercase tracking-widest text-sm text-brand-charcoal/70">
+                {stat.label}
+              </p>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-biaggio-green mb-2">15+</div>
-              <p className="text-gray-600 font-semibold">Years of Experience</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-biaggio-green mb-2">100%</div>
-              <p className="text-gray-600 font-semibold">Satisfaction Rate</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-biaggio-green mb-2">★★★★★</div>
-              <p className="text-gray-600 font-semibold">5-Star Reviews</p>
-            </div>
-          </div>
+          ))}
+
         </div>
+
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-biaggio-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Let's Create Something Beautiful Together
+      {/* FINAL CTA */}
+      <section className="py-24 bg-brand-charcoal text-white text-center">
+
+        <div className="container mx-auto px-4 max-w-2xl">
+
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+            Ready To Start Your Own Transformation?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Ready to start your project? Contact us for a free consultation.
+
+          <p className="text-lg text-white/80 mb-10">
+            Schedule a complimentary consultation and receive a detailed remodeling estimate tailored to your home.
           </p>
+
           <Link
             href="/contact"
-            className="inline-block bg-white text-biaggio-green px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+            className="inline-block bg-brand-primary px-10 py-4 rounded-full font-semibold hover:bg-brand-accent transition shadow-lg"
           >
-            Get Started
+            Request Free Estimate
           </Link>
+
         </div>
+
       </section>
     </>
   )

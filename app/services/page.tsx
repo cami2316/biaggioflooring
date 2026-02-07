@@ -1,186 +1,197 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Our Services - Biaggio Flooring',
-  description: 'Professional flooring installation services including hardwood, laminate, vinyl, tile, and carpet.',
+  title: 'Services - Flooring Installation & Bathroom Remodeling',
+  description:
+    'Professional flooring installation, bathroom remodeling, and custom tile work in Central Florida.',
 }
 
 export default function Services() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gray-900 text-white py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-          <p className="text-xl text-gray-300 max-w-3xl">
-            Expert flooring installation and remodeling services tailored to your home's unique needs.
+      {/* HERO */}
+      <section className="relative py-28 bg-brand-charcoal text-white overflow-hidden">
+
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/place_1.jpg"
+            alt="Luxury remodeling services"
+            fill
+            className="object-cover scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-charcoal/90 via-brand-charcoal/70 to-brand-charcoal/90" />
+        </div>
+
+        <div className="relative container mx-auto px-4 max-w-3xl">
+          <p className="uppercase tracking-[0.45em] text-brand-accent text-sm mb-5">
+            Our Services
+          </p>
+
+          <h1 className="text-4xl md:text-5xl font-semibold mb-6">
+            Precision Remodeling Designed Around Your Space
+          </h1>
+
+          <p className="text-lg text-white/90">
+            From flooring installations to full bathroom transformations, we deliver premium craftsmanship with dependable timelines.
           </p>
         </div>
       </section>
 
-      {/* Services Detail */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="space-y-20">
-            {/* Hardwood Flooring */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Hardwood Flooring</h2>
-                <p className="text-gray-600 mb-6">
-                  Classic beauty that lasts for generations. We specialize in hardwood floor installation, refinishing, and restoration. Choose from a wide variety of wood species, stains, and finishes.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    New installation
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Refinishing & restoration
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Multiple wood species available
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-gradient-to-br from-gray-300 to-gray-400 aspect-video rounded-lg flex items-center justify-center">
-                <svg className="w-24 h-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-            </div>
+      {/* FLOORING */}
+      <section className="py-24 bg-brand-white">
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
 
-            {/* Laminate & Vinyl */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1 bg-gradient-to-br from-gray-300 to-gray-400 aspect-video rounded-lg flex items-center justify-center">
-                <svg className="w-24 h-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Laminate & Vinyl Flooring</h2>
-                <p className="text-gray-600 mb-6">
-                  Affordable, durable, and easy to maintain. Perfect for high-traffic areas and families with pets. Available in styles that mimic hardwood, stone, and tile.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Water-resistant options
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Easy maintenance
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Cost-effective solution
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div>
+            <p className="uppercase tracking-[0.35em] text-brand-charcoal mb-4">
+              Flooring Installation
+            </p>
 
-            {/* Tile Installation */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Tile Installation</h2>
-                <p className="text-gray-600 mb-6">
-                  Ceramic, porcelain, and natural stone tile installation for floors, walls, and backsplashes. Perfect for kitchens, bathrooms, and entryways.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Ceramic & porcelain
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Natural stone options
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Custom patterns & designs
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-gradient-to-br from-gray-300 to-gray-400 aspect-video rounded-lg flex items-center justify-center">
-                <svg className="w-24 h-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-            </div>
+            <h2 className="text-3xl font-semibold text-brand-charcoal mb-6">
+              Floors Engineered for Durability & Style
+            </h2>
 
-            {/* Carpet Installation */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1 bg-gradient-to-br from-gray-300 to-gray-400 aspect-video rounded-lg flex items-center justify-center">
-                <svg className="w-24 h-24 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Carpet Installation</h2>
-                <p className="text-gray-600 mb-6">
-                  Soft, warm, and comfortable. We offer professional carpet installation with a wide selection of styles, colors, and textures to suit any room.
-                </p>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Wide variety of styles
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Stain-resistant options
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <svg className="w-5 h-5 text-biaggio-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Professional installation
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <p className="text-brand-charcoal mb-8">
+              We install premium flooring systems designed to enhance aesthetics while ensuring long-term performance in Central Florida homes.
+            </p>
+
+            <ul className="space-y-4">
+              {[
+                'Hardwood Flooring',
+                'Luxury Vinyl Plank (LVP)',
+                'Tile Flooring',
+                'Laminate Flooring',
+                'Stone Flooring',
+              ].map((item) => (
+                <li key={item} className="flex gap-3 text-brand-charcoal">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-brand-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
+
+          <div className="relative h-[440px] rounded-[36px] overflow-hidden shadow-premium">
+            <Image
+              src="/images/flooring/floor1.jpg"
+              alt="Luxury hardwood flooring installation"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* BATHROOM */}
+      <section className="py-24 bg-brand-white">
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+
+          <div className="relative h-[440px] rounded-[36px] overflow-hidden shadow-premium order-2 lg:order-1">
+            <Image
+              src="/images/bathrooms/bath.jpg"
+              alt="Bathroom remodeling with custom tile shower"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <p className="uppercase tracking-[0.35em] text-brand-charcoal mb-4">
+              Bathroom Remodeling
+            </p>
+
+            <h2 className="text-3xl font-semibold text-brand-charcoal mb-6">
+              Luxury Bathrooms Designed for Everyday Living
+            </h2>
+
+            <p className="text-brand-charcoal mb-8">
+              Waterproofing systems, precise tile alignment, and modern layouts designed for durability and elegance.
+            </p>
+
+            <ul className="space-y-4">
+              {[
+                'Custom Walk-In Showers',
+                'Tile Walls & Floors',
+                'Shower Niches & Benches',
+                'Glass Enclosure Preparation',
+                'Luxury Tile Designs',
+              ].map((item) => (
+                <li key={item} className="flex gap-3 text-brand-charcoal">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-brand-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      {/* TILE WORK */}
+      <section className="py-24 bg-brand-white">
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+
+          <div>
+            <p className="uppercase tracking-[0.35em] text-brand-charcoal mb-4">
+              Custom Tile & Decorative Work
+            </p>
+
+            <h2 className="text-3xl font-semibold text-brand-charcoal mb-6">
+              Statement Details That Define Your Space
+            </h2>
+
+            <p className="text-brand-charcoal mb-8">
+              From artistic backsplashes to custom entry medallions, our decorative tile installations deliver refined finishes.
+            </p>
+
+            <ul className="space-y-4">
+              {[
+                'Backsplashes',
+                'Feature Walls',
+                'Entry Medallions',
+                'Custom Layout Designs',
+              ].map((item) => (
+                <li key={item} className="flex gap-3 text-brand-charcoal">
+                  <span className="mt-2 h-2.5 w-2.5 rounded-full bg-brand-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative h-[440px] rounded-[36px] overflow-hidden shadow-premium">
+            <Image
+              src="/images/bathrooms/bath04.jpg"
+              alt="Decorative tile installation"
+              fill
+              className="object-cover"
+            />
+          </div>
+
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-biaggio-green text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Get Started?
+      <section className="py-24 bg-brand-charcoal text-white text-center">
+        <div className="container mx-auto px-4 max-w-2xl">
+
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">
+            Ready to Transform Your Space?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contact us today for a free consultation and quote.
+
+          <p className="text-lg text-white/80 mb-10">
+            Schedule a free consultation and receive a personalized remodeling estimate.
           </p>
+
           <Link
             href="/contact"
-            className="inline-block bg-white text-biaggio-green px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+            className="inline-block bg-brand-primary px-10 py-4 rounded-full font-semibold hover:bg-brand-accent transition shadow-lg"
           >
-            Get Free Quote
+            Request Free Estimate
           </Link>
+
         </div>
       </section>
     </>
