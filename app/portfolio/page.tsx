@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { Metadata } from 'next'
 import Gallery from '@/components/Gallery'
 
@@ -124,12 +125,12 @@ export default function Portfolio() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Ready to start your project? Contact us for a free consultation.
           </p>
-          <a
+          <Link
             href="/contact"
             className="inline-block bg-white text-biaggio-green px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
           >
             Get Started
-          </a>
+          </Link>
         </div>
       </section>
     </>
