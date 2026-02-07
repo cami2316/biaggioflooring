@@ -191,7 +191,6 @@ function showError(fieldId, message) {
 // Navbar Scroll Effect
 // ===========================
 
-let lastScroll = 0;
 const navbar = document.getElementById('navbar');
 
 window.addEventListener('scroll', () => {
@@ -202,8 +201,6 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     }
-    
-    lastScroll = currentScroll;
 });
 
 // ===========================
@@ -272,6 +269,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     }, 100);
+    
+    // Set current year in footer
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById('currentYear');
+    if (yearElement) {
+        yearElement.textContent = currentYear;
+    }
 });
 
 // ===========================
